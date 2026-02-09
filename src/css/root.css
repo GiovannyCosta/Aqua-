@@ -1,0 +1,56 @@
+/* src/css/root.css */
+:root {
+  /* Paleta de Cores */
+  --bg-app: #d0f4f7;
+  --bg-panel: #eafdfc;
+  --white: #ffffff;
+  --black: #0f1020;
+  --item-checked: #69b578;
+  --item-pending: #f56476;
+
+  --text-primary: #5a6a7e;
+  --text-secondary: #8ba0b3;
+
+  --accent-pink: #ffc8dd;
+  --accent-yellow: #fff4bd;
+  --accent-blue: #a2d2ff;
+
+  /* Fontes e Tamanhos */
+  --font-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --border-radius-lg: 30px;
+  --border-radius-sm: 15px;
+  --shadow-soft: 0 8px 24px rgba(149, 157, 165, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+  list-style: none;
+}
+
+/* --- SCROLLBAR GLOBAL ROSA (Clean) --- */
+/* Funciona em Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 6px; /* Largura fina */
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Fundo invisível */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent-pink); /* A cor rosa */
+  border-radius: 10px; /* Bem redondo */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ffb7ce; /* Um pouco mais escuro ao passar o mouse */
+}
+
+/* Remove botões/setas da scrollbar */
+::-webkit-scrollbar-button {
+  display: none;
+}

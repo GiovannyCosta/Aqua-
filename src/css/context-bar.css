@@ -1,0 +1,61 @@
+.left-panel h1{
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+/* Container Horizontal 100% */
+.left-panel {
+  background-color: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: 15px;
+
+  /* GRID DE 3 BOTÕES IGUAIS */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* 3 colunas de tamanho igual */
+  gap: 20px;
+
+  align-items: center;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Botões (Cards) */
+.context-card {
+  background-color: var(--bg-panel);
+  border-radius: var(--border-radius-sm);
+  padding: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.context-card i {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.context-card span {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Interações */
+.context-card:hover {
+  transform: translateY(-2px);
+  background-color: #e3f2fd;
+}
+
+.context-card.active {
+  background-color: var(--accent-pink);
+  color: var(--white);
+}
+
+.context-card.active i,
+.context-card.active span {
+  color: var(--white);
+}

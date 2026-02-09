@@ -1,0 +1,59 @@
+body {
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  width: 98%;
+  height: 96%;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* --- GRID PRINCIPAL --- */
+.dashboard-grid {
+  flex: 1;
+  display: grid;
+
+  /* Colunas: Conteúdo Central (Flex) | Barra Direita (Fixa) */
+  grid-template-columns: 1fr 340px;
+
+  /* Linhas: Barra Contexto (Auto) | Conteúdo (Resto) | Footer (Auto) */
+  grid-template-rows: auto 1fr auto;
+
+  gap: 20px;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+/* --- MAPA DO GRID --- */
+.left-panel {
+  /* Agora é a Barra Topo */
+  grid-column: 1 / -1; /* Ocupa tudo horizontalmente */
+  grid-row: 1;
+}
+
+.center-panel {
+  grid-column: 1;
+  grid-row: 2 / -1; /* Estica até o fim */
+  height: 100%;
+}
+
+.right-panel {
+  grid-column: 2;
+  grid-row: 2;
+  height: 100%;
+}
+
+.settings-footer {
+  grid-column: 2;
+  grid-row: 3;
+}

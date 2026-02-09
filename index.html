@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqua+ - Lembrete de Hidratação</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./src/css/root.css">
+    <link rel="stylesheet" href="./src/css/layout.css">
+    <link rel="stylesheet" href="./src/css/header.css">
+    <link rel="stylesheet" href="./src/css/context-bar.css">
+    <link rel="stylesheet" href="./src/css/center-panel.css">
+    <link rel="stylesheet" href="./src/css/reminders.css">
+    <link rel="stylesheet" href="./src/css/footer.css">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <header class="app-header">
+            <div class="date-time-wrapper">
+                <span id="current-date" class="date-text">quarta-feira, 4 fev, 2026</span>
+                <span id="current-time" class="time-text">12:24 PM</span>
+            </div>
+
+            <nav class="top-nav">
+                <button class="h2o-header-btn" aria-label="Tocar som de água">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+                <audio id="water-sound" src="https://actions.google.com/sounds/v1/water/air_bubbles.ogg"></audio>
+
+                <button class="icon-btn" aria-label="Notificações">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+                <div class="user-avatar">
+                    <i class="fa-solid fa-user-circle"></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="dashboard-grid">
+            <nav class="left-panel">
+                <div class="mode-item">
+                    <h1>Ative um modo:</h1>
+                </div>
+                <div class="context-card active" id="ctx-night">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>JOGO</span>
+                </div>
+                <div class="context-card" id="ctx-workout">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                    <span>EXERCÍCIO</span>
+                </div>
+                <div class="context-card" id="ctx-meal">
+                    <i class="fa-solid fa-utensils"></i>
+                    <span>ALIMENTO</span>
+                </div>
+            </nav>
+
+            <section class="center-panel">
+                <div class="mascot-area">
+                    <img src="./src/public/mascot.png" alt="Mascote AquaPal" class="mascot-img"
+                        onclick="playWaterSound()">
+                </div>
+
+                <div class="separator-horizontal"></div>
+
+                <div class="checklist-container">
+
+                    <h3 class="panel-subtitle">Metas de Volume</h3>
+                    <ul class="static-progress-list">
+                        <li class="static-item">
+                            <div class="info-row">
+                                <span class="label"><i class="fa-solid fa-glass-water icon-blue"></i> 250 ml</span>
+                                <span class="percent">100%</span>
+                            </div>
+                            <div class="bar-bg">
+                                <div class="bar-fill" style="width: 100%; background-color: var(--item-checked);"></div>
+                            </div>
+                        </li>
+                        <li class="static-item">
+                            <div class="info-row">
+                                <span class="label"><i class="fa-solid fa-bottle-water icon-blue"></i> 500 ml</span>
+                                <span class="percent">50%</span>
+                            </div>
+                            <div class="bar-bg">
+                                <div class="bar-fill" style="width: 50%;"></div>
+                            </div>
+                        </li>
+                        <li class="static-item">
+                            <div class="info-row">
+                                <span class="label"><i class="fa-solid fa-faucet-drip icon-blue"></i> 1000 ml</span>
+                                <span class="percent">20%</span>
+                            </div>
+                            <div class="bar-bg">
+                                <div class="bar-fill" style="width: 20%;"></div>
+                            </div>
+                        </li>
+                        <li class="static-item">
+                            <div class="info-row">
+                                <span class="label"><i class="fa-solid fa-bucket icon-blue"></i> 2000 ml</span>
+                                <span class="percent">0%</span>
+                            </div>
+                            <div class="bar-bg">
+                                <div class="bar-fill" style="width: 0%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="list-divider"></div>
+
+                    <h3 class="panel-subtitle">Turnos do Dia</h3>
+                    <ul class="static-progress-list">
+                        <li class="static-item">
+                            <div class="info-row">
+                                <span class="label"><i class="fa-regular fa-sun icon-yellow"></i> Manhã</span>
+                                <span class="percent">90%</span>
+                            </div>
+                            <div class="bar-bg">
+                                <div class="bar-fill" style="width: 90%;"></div>
+                            </div>
+                        </li>
+
+                        <li class="static-item">
+                            <div class="info-row">
+                                <span class="label"><i class="fa-solid fa-cloud-sun icon-orange"></i> Tarde</span>
+                                <span class="percent">45%</span>
+                            </div>
+                            <div class="bar-bg">
+                                <div class="bar-fill" style="width: 45%;"></div>
+                            </div>
+                        </li>
+
+                        <li class="static-item">
+                            <div class="info-row">
+                                <span class="label"><i class="fa-solid fa-moon icon-purple"></i> Noite</span>
+                                <span class="percent">10%</span>
+                            </div>
+                            <div class="bar-bg">
+                                <div class="bar-fill" style="width: 10%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <aside class="right-panel">
+                <h3 class="panel-title">Lembretes</h3>
+
+                <div class="add-reminder-section">
+                    <p class="step-label">1. Escolha a quantidade:</p>
+                    <div class="volume-presets">
+                        <button class="vol-btn" onclick="selectVolume(this)">100ml</button>
+                        <button class="vol-btn" onclick="selectVolume(this)">200ml</button>
+                        <button class="vol-btn" onclick="selectVolume(this)">300L</button>
+                        <button class="vol-btn" onclick="selectVolume(this)">400ml</button>
+                    </div>
+
+
+                    <div class="reminder-input-group disabled-group">
+                        <input type="time" id="new-reminder-time" disabled>
+                        <button id="add-reminder-btn" disabled>
+                            Adicionar <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="reminders-section">
+                    <ul class="reminder-list" id="reminder-list-ul">
+                        <li class="reminder-item done">
+                            <div class="time-info">
+                                <i class="fa-regular fa-circle-check icon-check-done"></i>
+                                <span>08:00 AM</span>
+                            </div>
+                            <span class="badge">Já bebi</span>
+                        </li>
+                        <li class="reminder-item">
+                            <div class="time-info">
+                                <i class="fa-regular fa-circle icon-check-pending"></i>
+                                <span>10:00 AM</span>
+                            </div>
+                            <button class="check-btn">Beber</button>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="settings-footer">
+                <button class="icon-btn-pill">
+                    <div class="avatar-circle">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="btn-text">
+                        <span class="label-title">Perfil</span>
+                        <span class="label-subtitle">Geral</span>
+                    </div>
+                </button>
+                <div class="separator"></div>
+                <button class="icon-btn-simple">
+                    <span class="label-title">Config</span>
+                    <i class="fa-solid fa-gear"></i>
+                </button>
+            </div>
+
+        </main>
+    </div>
+    <script src="/src/js/bellSign.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+/* src/css/header.css */
+
+.app-header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white);
+  padding: 0 25px;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-soft);
+}
+
+.date-time-wrapper {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.h2o-header-btn {
+  width: 25px;
+  height: 25px;
+  border-radius: var(--border-radius-sm);
+  padding: 5px;
+  background-color: var(--accent-yellow);
+  border: 2px solid var(--white);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+
+  /* Ajuste para ficar levemente maior que a barra */
+  position: relative;
+  top: 2px; /* Pequeno ajuste visual */
+}
+
+.h2o-header-btn i {
+  color: var(--accent-pink);
+  font-size: 1.2rem;
+}
+
+.h2o-header-btn:hover {
+  transform: scale(1.1) rotate(-5deg); /* Efeitinho divertido */
+}
+
+.h2o-header-btn:active {
+  transform: scale(0.95);
+}
+
+/* Ícones padrão (Sino e User) */
+.icon-btn,
+.user-avatar i {
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+}
