@@ -30,14 +30,35 @@
 }
 
 .vol-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   background: var(--white);
-  border: 2px solid var(--accent-blue);
   border-radius: 50px;
   padding: 8px;
   color: var(--text-primary);
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
+}
+
+.vol-btn input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  outline: none;
+  transition: 0.2s;
+}
+.vol-btn input[type="radio"]:checked {
+  background-color: var(--accent-pink);
+  border-color: var(--accent-blue);
+}
+.vol-btn.disabled {
+  background-color: #e1f5fe;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .vol-btn:hover {
   background-color: #e1f5fe;
@@ -84,11 +105,60 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  animation: myAnim 300ms ease 0s 1 normal forwards;
 }
+
 input:disabled,
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+.disabled-group [disabled] {
+  position: relative;
+}
+
+.disabled-group [disabled]::after {
+  content: "Selecione a quantidade primeiro";
+  position: absolute;
+  top: -30px;
+  left: 0;
+  background: #333;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0);
+  animation: slideDown 300ms ease forwards;
+}
+
+.disabled-group [disabled]:hover::after {
+  animation: slideUp 300ms ease forwards; /* animação ao entrar */
 }
 
 /* Lista de Lembretes */
@@ -97,13 +167,81 @@ button:disabled {
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 5px;
+  padding-top: 5px;
 }
 .reminder-item {
+  background-color: var(--white);
+  border-radius: 16px; /* Bordas mais arredondadas */
+  padding: 15px 15px;
+  margin-bottom: 12px; /* Espaço entre os itens */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
-  border-bottom: 1px solid #eee;
+  box-shadow: 0 4px 10px rgba(149, 157, 165, 0.05); /* Sombra suave */
+  border: 1px solid transparent;
+  transition: transform 0.2s ease;
+}
+
+.reminder-item:hover {
+  transform: translateY(-2px); /* Efeito de flutuar ao passar o mouse */
+  border-color: var(--accent-blue);
+}
+
+/* Área da esquerda (Ícone + Textos) */
+.time-info {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espaço entre o check e o texto */
+}
+
+/* Ícones de Check (Ajuste de tamanho) */
+.icon-check-pending,
+.icon-check-done {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* Coluna de detalhes (Horário em cima, Volume embaixo) */
+.reminder-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.reminder-time {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+/* A "Tag" de volume */
+.reminder-vol {
+  font-size: 0.85rem;
+  color: #5da9e9; /* Um azul um pouco mais vivo que o texto */
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.reminder-vol i {
+  font-size: 0.75rem; /* Ícone da gota pequenininho */
+}
+
+/* --- ESTILOS PARA ITEM CONCLUÍDO --- */
+.reminder-item.done {
+  background-color: #f8f9fa; /* Fundo mais apagado */
+  opacity: 0.8;
+}
+
+.reminder-item.done .reminder-time {
+  text-decoration: line-through; /* Risca o horário */
+  color: var(--text-secondary);
+}
+
+.reminder-item.done .reminder-vol {
+  filter: grayscale(100%); /* Deixa o azul cinza */
 }
 .icon-check-done {
   color: var(--item-checked);

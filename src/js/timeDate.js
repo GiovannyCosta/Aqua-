@@ -1,16 +1,29 @@
-function updateTimeDate(now, langConfig) {
+// função com retorno global
+window.getAppDateConfig = function () {
+  const now = new Date();
+  const langConfig = navigator.language || "en-US";
+  return {
+    now: now,
+    lang: langConfig,
+  };
+};
+
+// 2. Funções de Visualização
+function updateTimeDate(data) {
+  // Recebe os dados prontos
   const dateEL = document.getElementById("current-date");
-  const year = now.toLocaleDateString(langConfig, { year: "numeric" });
-  const month = now.toLocaleDateString(langConfig, { month: "short" });
-  const day = now.toLocaleDateString(langConfig, { day: "numeric" });
-  const dayOfWeek = now.toLocaleDateString(langConfig, { weekday: "long" });
+  const year = data.now.toLocaleDateString(data.lang, { year: "numeric" });
+  const month = data.now.toLocaleDateString(data.lang, { month: "short" });
+  const day = data.now.toLocaleDateString(data.lang, { day: "numeric" });
+  const dayOfWeek = data.now.toLocaleDateString(data.lang, { weekday: "long" });
 
   dateEL.innerText = `${dayOfWeek}, ${day} ${month.replace(".", "")}, ${year} | `;
 }
 
-function updateTime(now, langConfig) {
+function updateTime(data) {
+  // Recebe os dados prontos
   const timeEL = document.getElementById("current-time");
-  const hours = now.toLocaleTimeString(langConfig, {
+  const hours = data.now.toLocaleTimeString(data.lang, {
     hour: "2-digit",
     minute: "2-digit",
   });
@@ -18,11 +31,14 @@ function updateTime(now, langConfig) {
   timeEL.innerText = `${hours}`;
 }
 
+// 3. Função Principal que roda a cada segundo
 function updateAll() {
-  const now = new Date();
-  const langConfig = navigator.language || "en-US";
-  updateTimeDate(now, langConfig);
-  updateTime(now, langConfig);
+  // Pega os dados frescos usando nossa nova função global
+  const config = window.getAppDateConfig();
+
+  // Passa os dados para quem desenha na tela
+  updateTimeDate(config);
+  updateTime(config);
 }
 
 setInterval(updateAll, 1000);

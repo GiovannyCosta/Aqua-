@@ -24,7 +24,7 @@ body {
   display: grid;
 
   /* Colunas: Conteúdo Central (Flex) | Barra Direita (Fixa) */
-  grid-template-columns: 1fr 340px;
+  grid-template-columns: 1fr 380px;
 
   /* Linhas: Barra Contexto (Auto) | Conteúdo (Resto) | Footer (Auto) */
   grid-template-rows: auto 1fr auto;
