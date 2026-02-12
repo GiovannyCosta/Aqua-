@@ -24,19 +24,18 @@
 
         <header class="app-header">
             <div class="date-time-wrapper">
-                <span id="current-date" class="date-text">quarta-feira, 4 fev, 2026</span>
+                <span id="current-date" class="date-text"><!--quarta-feira, 4 fev, 2026--></span>
                 <span id="current-time" class="time-text">12:24 PM</span>
             </div>
 
             <nav class="top-nav">
-                <button class="h2o-header-btn" aria-label="Tocar som de água">
-                    <i class="fa-solid fa-volume-high"></i>
-                </button>
-                <audio id="water-sound" src="https://actions.google.com/sounds/v1/water/air_bubbles.ogg"></audio>
 
                 <button class="icon-btn" aria-label="Notificações">
                     <i class="fa-regular fa-bell"></i>
                     <span class="notification-dot"></span>
+                </button>
+                <button class="icon-btn" aria-label="tropy">
+                    <i class="fa-solid fa-award"></i>
                 </button>
                 <div class="user-avatar">
                     <i class="fa-solid fa-user-circle"></i>
@@ -154,38 +153,65 @@
                 <h3 class="panel-title">Lembretes</h3>
 
                 <div class="add-reminder-section">
-                    <p class="step-label">1. Escolha a quantidade:</p>
-                    <div class="volume-presets">
-                        <button class="vol-btn" onclick="selectVolume(this)">100ml</button>
-                        <button class="vol-btn" onclick="selectVolume(this)">200ml</button>
-                        <button class="vol-btn" onclick="selectVolume(this)">300L</button>
-                        <button class="vol-btn" onclick="selectVolume(this)">400ml</button>
-                    </div>
 
+                    <form id="getReminder">
+                        <p class="step-label">1. Escolha a quantidade:</p>
+                        <div class="volume-presets">
+                            <label class="vol-btn">
+                                <input type="radio" name="volume" value="100ml">
+                                100ml
+                            </label>
+                            <label class="vol-btn">
+                                <input type="radio" name="volume" value="200ml">
+                                200ml
+                            </label>
+                            <label class="vol-btn">
+                                <input type="radio" name="volume" value="300L">
+                                300L
+                            </label>
+                            <label class="vol-btn">
+                                <input type="radio" name="volume" value="400ml">
+                                400ml
+                            </label>
+                        </div>
 
-                    <div class="reminder-input-group disabled-group">
-                        <input type="time" id="new-reminder-time" disabled>
-                        <button id="add-reminder-btn" disabled>
-                            Adicionar <i class="fa-solid fa-plus"></i>
-                        </button>
-                    </div>
+                        <div class="reminder-input-group disabled-group">
+                            <input type="time" id="new-reminder-time" disabled>
+                            <button id="add-reminder-btn" disabled>
+                                Adicionar <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </form>
+
                 </div>
 
                 <div class="reminders-section">
-                    <ul class="reminder-list" id="reminder-list-ul">
-                        <li class="reminder-item done">
-                            <div class="time-info">
-                                <i class="fa-regular fa-circle-check icon-check-done"></i>
-                                <span>08:00 AM</span>
-                            </div>
-                            <span class="badge">Já bebi</span>
-                        </li>
+                    <ul class="reminder-list" id="reminderListUL">
                         <li class="reminder-item">
                             <div class="time-info">
                                 <i class="fa-regular fa-circle icon-check-pending"></i>
-                                <span>10:00 AM</span>
+                                <div class="reminder-details">
+                                    <span class="reminder-time">10:00 AM</span>
+                                    <span class="reminder-vol">
+                                        <i class="fa-solid fa-droplet"></i> 200ml
+                                    </span>
+                                </div>
                             </div>
                             <button class="check-btn">Beber</button>
+                        </li>
+
+                        <li class="reminder-item done">
+                            <div class="time-info">
+                                <i class="fa-solid fa-circle-check icon-check-done"></i>
+
+                                <div class="reminder-details">
+                                    <span class="reminder-time">08:00 AM</span>
+                                    <span class="reminder-vol">
+                                        <i class="fa-solid fa-droplet"></i> 200ml
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="badge">Já bebi</span>
                         </li>
                     </ul>
                 </div>
@@ -211,6 +237,8 @@
         </main>
     </div>
     <script src="/src/js/bellSign.js"></script>
+    <script src="/src/js/timeDate.js"></script>
+    <script defer src="/src/js/addReminders.js"></script>
 </body>
 
 </html>
