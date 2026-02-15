@@ -1,7 +1,7 @@
 const timeInput = document.getElementById("new-reminder-time");
 const addBtn = document.getElementById("add-reminder-btn");
 const listUL = document.getElementById("reminderListUL");
-listReminderItem = [];
+let listReminderItem = [];
 
 // Habilita botões de adicionar e escolher o volume
 document.querySelectorAll('input[name="volume"]').forEach((radio) => {
@@ -9,7 +9,6 @@ document.querySelectorAll('input[name="volume"]').forEach((radio) => {
     if (radio.checked) {
       timeInput.disabled = false;
       addBtn.disabled = false;
-      timeInput = now;
     }
   });
 });
@@ -95,6 +94,7 @@ function showReminders() {
     listUL.appendChild(li);
   });
 
+  window.updateVolGoals(listReminderItem);
   console.log("Current Array State:", listReminderItem);
 }
 window.btnDone = function (id) {
