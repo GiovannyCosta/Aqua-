@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./src/icons/favicon.ico" type="image/x-icon">
+
     <title>Aqua+ - Lembrete de Hidratação</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -17,6 +19,7 @@
     <link rel="stylesheet" href="./src/css/center-panel.css">
     <link rel="stylesheet" href="./src/css/reminders.css">
     <link rel="stylesheet" href="./src/css/footer.css">
+    <link rel="stylesheet" href="./src/css/card-cookie.css">
 </head>
 
 <body>
@@ -64,8 +67,7 @@
 
             <section class="center-panel">
                 <div class="mascot-area">
-                    <img src="./src/public/mascot.png" alt="Mascote AquaPal" class="mascot-img"
-                        onclick="playWaterSound()">
+                    <img src="./src/public/mascot.png" alt="Mascote AquaPal" class="mascot-img">
                 </div>
 
                 <div class="separator-horizontal"></div>
@@ -231,12 +233,23 @@
                     <i class="fa-solid fa-gear"></i>
                 </button>
             </div>
-
         </main>
+        <div class="notfi-cookie" style="display: none;">
+            <div class="card">
+                <img src="./src/public/mascot.png" alt="">
+                <p class="cookieHeading">Notificações</p>
+                <p class="cookieDescription">Aqua+ utiliza notificações para lembretes. <br><a href="#">Veja em
+                        Configurações</a>.</p>
+                <div class="buttonContainer">
+                    <button class="acceptButton">Aceitar</button>
+                    <button class="declineButton">Recusar</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="/src/js/bellSign.js"></script>
     <script src="/src/js/timeDate.js"></script>
     <script src="/src/js/goals.js"></script>
+    <script src="/src/js/notifications.js"></script>
     <script defer src="/src/js/addReminders.js"></script>
 </body>
 

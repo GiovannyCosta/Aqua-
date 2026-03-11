@@ -14,12 +14,16 @@
   --accent-pink: #ffc8dd;
   --accent-yellow: #fff4bd;
   --accent-blue: #a2d2ff;
+  --button-blue: #5da9e9;
+  --text-link: rgb(59 130 246);
 
   /* Fontes e Tamanhos */
   --font-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --border-radius-lg: 30px;
   --border-radius-sm: 15px;
   --shadow-soft: 0 8px 24px rgba(149, 157, 165, 0.1);
+  --shadow: 0 10px 15px -3px #bebdbd, 0 4px 6px -2px #bebdbd;
+  --shadow-success: 0 8px 24px rgba(47, 182, 74, 0.315);
 }
 
 * {

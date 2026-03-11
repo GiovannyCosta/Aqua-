@@ -49,6 +49,8 @@ addBtn.addEventListener("click", (e) => {
   timeInput.disabled = true;
   addBtn.disabled = true;
   selectedVol.checked = false;
+  let audio = new Audio("./src/sounds/keypad-sound-water.mp3");
+  audio.play();
 });
 function showReminders() {
   listUL.innerHTML = "";

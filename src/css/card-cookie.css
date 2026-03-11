@@ -1,0 +1,158 @@
+/* --- FUNDO DO POP-UP --- */
+.notfi-cookie {
+  position: fixed; /* Tira do fluxo da página e fixa na tela */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999; /* Garante que fique por cima de TUDO no Aqua+ */
+}
+
+/* --- CARD --- */
+.card {
+  width: 300px;
+  height: 220px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px;
+  gap: 13px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+  animation: DropCard 1.5s ease 0s 1 normal forwards;
+}
+
+@keyframes DropCard {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 0;
+    transform: translateY(-250px);
+  }
+  38% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  55% {
+    animation-timing-function: ease-in;
+    transform: translateY(-65px);
+  }
+  72% {
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+  81% {
+    animation-timing-function: ease-in;
+    transform: translateY(-28px);
+  }
+  90% {
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+  95% {
+    animation-timing-function: ease-in;
+    transform: translateY(-8px);
+  }
+  100% {
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+}
+
+.cookieHeading {
+  font-size: 1.2em;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.cookieDescription {
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+img {
+  width: 70px;
+}
+
+.cookieHeading {
+  font-size: 1.2em;
+  font-weight: 800;
+  color: rgb(26, 26, 26);
+}
+
+.cookieDescription {
+  text-align: center;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: rgb(99, 99, 99);
+}
+
+.cookieDescription a {
+  --tw-text-opacity: 1;
+  color: var(--text-link);
+}
+
+.cookieDescription a:hover {
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.acceptButton {
+  width: 80px;
+  height: 30px;
+  background-color: var(--button-blue);
+  transition-duration: 0.2s;
+  border: none;
+  color: rgb(241, 241, 241);
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 20px;
+  transition: all 0.6s ease;
+}
+
+.declineButton {
+  width: 80px;
+  height: 30px;
+  background-color: #dadada;
+  transition-duration: 0.2s;
+  color: rgb(46, 46, 46);
+  border: none;
+  cursor: not-allowed;
+  font-weight: 600;
+  border-radius: 20px;
+  box-shadow:
+    0 4px 6px -1px #bebdbd,
+    0 2px 4px -1px #bebdbd;
+  transition: all 0.6s ease;
+}
+
+.declineButton:hover {
+  background-color: #ebebeb;
+  box-shadow: var(--shadow);
+  color: var(--item-pending);
+  transition-duration: 0.2s;
+}
+
+.acceptButton:hover {
+  background-color: var(--item-checked);
+  box-shadow: var(--shadow-success);
+  transition-duration: 0.2s;
+}
