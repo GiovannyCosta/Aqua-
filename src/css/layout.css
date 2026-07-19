@@ -1,17 +1,17 @@
 body {
   background-color: var(--bg-app);
   color: var(--text-primary);
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .app-container {
-  width: 98%;
-  height: 96%;
+  width: min(1440px, calc(100% - 32px));
+  min-height: calc(100vh - 32px);
+  margin: 16px auto;
   background: transparent;
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@ body {
   grid-template-rows: auto 1fr auto;
 
   gap: 20px;
-  overflow: hidden;
+  min-height: 0;
   padding-bottom: 10px;
 }
 
@@ -56,4 +56,16 @@ body {
 .settings-footer {
   grid-column: 2;
   grid-row: 3;
+}
+
+@media (max-width: 980px) {
+  .dashboard-grid { grid-template-columns: minmax(0, 1fr) 340px; gap: 14px; }
+}
+@media (max-width: 760px) {
+  .app-container { width: calc(100% - 20px); margin: 10px auto; }
+  .dashboard-grid { display: flex; flex-direction: column; overflow: visible; }
+  .center-panel, .right-panel, .settings-footer { width: 100%; height: auto; }
+  .center-panel { order: 2; }
+  .right-panel { order: 1; min-height: 560px; }
+  .settings-footer { order: 3; }
 }

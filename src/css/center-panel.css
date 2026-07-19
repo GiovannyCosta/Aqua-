@@ -16,8 +16,12 @@
   text-align: center;
 }
 .mascot-img {
-  width: 200px;
+  width: clamp(130px, 18vw, 200px);
   height: auto;
+}
+
+@media (max-width: 760px) {
+  .center-panel { padding: 0 12px 16px; max-height: none; }
 }
 
 /* O botão antigo foi removido daqui */

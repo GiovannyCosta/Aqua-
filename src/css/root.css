@@ -34,6 +34,10 @@
   list-style: none;
 }
 
+button, input { font: inherit; }
+button:focus-visible, input:focus-visible { outline: 3px solid rgba(93, 169, 233, .4); outline-offset: 2px; }
+[hidden] { display: none !important; }
+
 /* --- SCROLLBAR GLOBAL ROSA (Clean) --- */
 /* Funciona em Chrome, Edge, Safari */
 ::-webkit-scrollbar {

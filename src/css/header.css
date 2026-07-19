@@ -66,3 +66,9 @@
   background: none;
   border: none;
 }
+
+@media (max-width: 540px) {
+  .app-header { height: auto; min-height: 56px; padding: 10px 14px; }
+  .date-time-wrapper { display: flex; flex-direction: column; font-size: .78rem; }
+  .top-nav { gap: 10px; }
+}

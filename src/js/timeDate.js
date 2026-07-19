@@ -42,3 +42,4 @@ function updateAll() {
 }
 
 setInterval(updateAll, 1000);
+updateAll();

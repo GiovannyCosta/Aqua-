@@ -12,6 +12,7 @@
 
   z-index: 9999; /* Garante que fique por cima de TUDO no Aqua+ */
 }
+.notfi-cookie.closing { opacity: 0; transition: opacity .25s ease; }
 
 /* --- CARD --- */
 .card {
@@ -135,7 +136,7 @@ img {
   transition-duration: 0.2s;
   color: rgb(46, 46, 46);
   border: none;
-  cursor: not-allowed;
+  cursor: pointer;
   font-weight: 600;
   border-radius: 20px;
   box-shadow:
@@ -143,6 +144,27 @@ img {
     0 2px 4px -1px #bebdbd;
   transition: all 0.6s ease;
 }
+
+.guide-dialog { position: fixed; inset: 0; margin: auto; width: min(560px, calc(100% - 24px)); max-height: min(720px, calc(100vh - 24px)); border: 0; border-radius: 24px; padding: 28px; color: var(--text-primary); box-shadow: 0 24px 70px rgba(30, 68, 80, .24); }
+.guide-dialog::backdrop { background: rgba(15, 30, 40, .48); backdrop-filter: blur(3px); }
+.guide-dialog h2 { color: var(--black); margin: 5px 0 18px; }
+.guide-dialog ol { display: grid; gap: 12px; padding-left: 22px; }
+.guide-dialog li { list-style: decimal; line-height: 1.5; }
+.dialog-close { position: absolute; right: 18px; top: 18px; border: 0; background: #edf7f7; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; color: var(--text-primary); }
+.rules-box { background: #effafa; border-left: 4px solid var(--accent-blue); border-radius: 12px; padding: 14px; margin-top: 20px; line-height: 1.5; }
+.rules-box p { margin-top: 5px; font-size: .88rem; }
+.primary-btn { border: 0; border-radius: 999px; background: var(--button-blue); color: white; padding: 11px 24px; font-weight: 800; cursor: pointer; }
+.dialog-ok { display: block; margin: 20px 0 0 auto; }
+
+.confetti-layer { position: fixed; inset: 0; z-index: 10000; overflow: hidden; pointer-events: none; }
+.confetti-layer i { display: none; position: absolute; left: calc(var(--x) * 1%); top: -20px; width: 10px; height: 18px; border-radius: 3px; background: var(--accent-pink); }
+.confetti-layer i[style*="--color:1"] { background: #5da9e9; }
+.confetti-layer i[style*="--color:2"] { background: #69b578; }
+.confetti-layer i[style*="--color:3"] { background: #ffd166; }
+.confetti-layer i[style*="--color:4"] { background: #9575cd; }
+.confetti-layer.celebrate i { display: block; animation: confetti-fall 3s var(--delay) ease-in forwards; }
+@keyframes confetti-fall { to { transform: translateY(105vh) rotate(var(--spin)); opacity: .85; } }
+@media (prefers-reduced-motion: reduce) { .confetti-layer.celebrate i { animation-duration: .01ms; } }
 
 .declineButton:hover {
   background-color: #ebebeb;
